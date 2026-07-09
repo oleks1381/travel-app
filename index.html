@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подорожі на двопідвісах</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background:#1b1b1b;
+    color:white;
+}
+
+header{
+    background:url("https://velopodium.com.ua/content/uploads/images/dvuhpodvesnyj-velosiped.jpg") center/cover;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+header div{
+    background:rgba(0,0,0,.6);
+    padding:40px;
+    border-radius:10px;
+}
+
+header h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+header p{
+    font-size:22px;
+    margin-bottom:25px;
+}
+
+section{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:60px 0;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#d0d0d0;
+}
+
+/* Загальні стилі для кнопок */
+.btn-main, .btn-book {
+    display:inline-block;
+    background:#ff5722;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:background .3s, transform .2s;
+}
+
+.btn-main{
+    padding:15px 30px;
+    font-size:18px;
+}
+
+.btn-book{
+    padding:10px 20px;
+    font-size:16px;
+    margin-top:15px;
+}
+
+.btn-main:hover, .btn-book:hover{
+    background:#e64a19;
+    transform:translateY(-2px);
+}
+
+.route{
+    background:#2a2a2a;
+    padding:30px;
+    border-radius:12px;
+    line-height:2;
+    margin-bottom:25px;
+}
+
+.route ul, .route ol{
+    margin-left:20px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* Блок відгуків */
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:20px;
+}
+
+.review-card{
+    background:#252525;
+    padding:25px;
+    border-radius:12px;
+    border-left:4px solid #ff5722;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.review-card p{
+    font-style:italic;
+    color:#dcdcdc;
+    margin-bottom:15px;
+    line-height:1.6;
+}
+
+.review-author{
+    font-weight:bold;
+    color:#ff5722;
+    font-style:normal;
+}
+
+.review-stars{
+    color:#ffc107;
+    margin-bottom:10px;
+}
+
+footer{
+    background:#111;
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<div>
+<h1>🚵‍♂️ Подорожі на двопідвісах</h1>
+<p>Відкривай нові екстремальні маршрути разом з нами!</p>
+<a href="#routes" class="btn-main">Забронювати подорож</a>
+</div>
+</header>
+
+<section id="routes">
+
+<h2>Маршрути</h2>
+
+<!-- Маршрут 1 -->
+<div class="route">
+<h3>1. Львів → Брюховичі → Івано-Франкове → Яворівський національний парк</h3>
+<ul>
+<li>📍 Львів → Брюховичі — <b>10 км</b></li>
+<li>🌲 Брюховичі → Івано-Франкове — <b>20 км</b></li>
+<li>🏞 Івано-Франкове → Яворівський парк — <b>15 км</b></li>
+<li>🏁 Загальна довжина — <b>45 км</b></li>
+<li>⏱ Час подорожі — 4–6 годин</li>
+<li>⭐ Складність — середня</li>
+</ul>
+<button class="btn-book" onclick="alert('Дякуємо! Наш менеджер зв’яжеться з вами для підтвердження бронювання.')">Забронювати</button>
+</div>
+
+<!-- Маршрут 2 -->
+<div class="route">
+<h3>2. Львів → Винники → Чортові Скелі (Джиб-сесія & Дропи)</h3>
+<ul>
+<li>📍 Львів → Винниківський ліс — <b>7 км</b></li>
+<li>🧗‍♂️ Чортові Скелі → Трейли — <b>15 км</b></li>
+<li>🏁 Загальна довжина — <b>22 км</b></li>
+<li>⏱ Час подорожі — 3–4 години</li>
+<li>⭐ Складність — висока (для двопідвісів)</li>
+</ul>
+<button class="btn-book" onclick="alert('Дякуємо! Наш менеджер зв’яжеться з вами для підтвердження бронювання.')">Забронювати</button>
+</div>
+
+<!-- Маршрут 3 -->
+<div class="route">
+<h3>3. Львів → Дубляни → Куликів → Королівське місто Жовква</h3>
+<ul>
+<li>📍 Львів → Дубляни — <b>8 км</b></li>
+<li>🚲 Дубляни → Куликів — <b>12 км</b></li>
+<li>🏰 Куликів → Жовква — <b>15 км</b></li>
+<li>🏁 Загальна довжина — <b>35 км</b></li>
+<li>⏱ Час подорожі — 3–4 години</li>
+<li>⭐ Складність — легка</li>
+</ul>
+<button class="btn-book" onclick="alert('Дякуємо! Наш менеджер зв’яжеться з вами для підтвердження бронювання.')">Забронювати</button>
+</div>
+
+</section>
+
+<section>
+
+<h2>Плани подорожей</h2>
+
+<div class="route">
+<h3>📌 План подорожі 1: Яворівський напрямок</h3>
+<ol>
+<li>Старт у Львові.</li>
+<li>Проїзд через Брюховичі.</li>
+<li>Зупинка біля озера.</li>
+<li>Відпочинок та перекус.</li>
+<li>Продовження маршруту через ліс.</li>
+<li>Прибуття до Яворівського національного парку.</li>
+<li>Фотосесія та повернення.</li>
+</ol>
+</div>
+
+<div class="route">
+<h3>📌 План подорожі 2: Чортові Скелі на двопідвісах</h3>
+<ol>
+<li>Збір та перевірка тиску в амортизаторах (Sag).</li>
+<li>Підйом через Винниківський ліс.</li>
+<li>Катка по корінню та заїзд на технічні трейли.</li>
+<li>Відпочинок та зйомка стильків.</li>
+<li>Швидкісний спуск назад у місто.</li>
+</ol>
+</div>
+
+</section>
+
+<section>
+
+<h2>Фотогалерея</h2>
+
+<div class="gallery">
+
+<!-- 1 Фото: Мішаня Огороднік -->
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKTlJWZGXRXbtzyHuSRpL8IxBFScyT1Mc79zIBmDXJYxxF9umzXOHwsms&s=10">
+
+<!-- 2 Фото: Двопідвіс -->
+<img src="https://img.redbull.com/images/c_limit,w_1500,h_1000/f_auto,q_auto/redbullcom/2020/10/30/keugav9fr9kyawsouio7/tahnee-seagrave-canyon-sender">
+
+<!-- 3 Фото: Екстремальний двопідвіс -->
+<img src="https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=800&q=80" alt="Двопідвіс гірський">
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Відгуки райдерів</h2>
+
+<div class="reviews">
+
+<div class="review-card">
+<div>
+<div class="review-stars">⭐⭐⭐⭐⭐</div>
+<p>«Маршрут на Чортові Скелі — це просто гармата! Двопідвіс відпрацював усі корені й дропи на 100%. Окрема дяка за правильні поради щодо налаштування збитості амортів перед стартом!»</p>
+</div>
+<span class="review-author">— Олег, Ендуро-райдер</span>
+</div>
+
+<div class="review-card">
+<div>
+<div class="review-stars">⭐⭐⭐⭐⭐</div>
+<p>«Катали в Яворівський парк. Дуже кайфовий лісовий трейл, пейзажі неймовірні! Дистанція комфортна, для двопідвіса це справжній релакс після міського асфальту.»</p>
+</div>
+<span class="review-author">— Марина</span>
+</div>
+
+<div class="review-card">
+<div>
+<div class="review-stars">⭐⭐⭐⭐☆</div>
+<p>«Маршрут до Жовкви досить простий, але чудово підходить для обкатки нового байка або для розслабленої катки у вихідний день. Чекаю нових складних трейлів!»</p>
+</div>
+<span class="review-author">— Андрій</span>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>Контакти</h3>
+
+<p>📞 +380 14 888 67 52</p>
+<p>📧 travelbike@example.com</p>
+<p>© 2026 Подорожі на двопідвісах</p>
+
+</footer>
+
+</body>
+</html>
