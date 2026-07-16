@@ -20,11 +20,58 @@ html {
 body{
     background:#1b1b1b;
     color:white;
+    padding-top: 60px; /* 1. Відступ під фіксоване меню */
+}
+
+/* 1. НАВІГАЦІЙНА ПАНЕЛЬ */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: #ff5722;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color .3s;
+}
+
+.nav-links a:hover {
+    color: #ff5722;
 }
 
 header{
     background:url("https://velopodium.com.ua/content/uploads/images/dvuhpodvesnyj-velosiped.jpg") center/cover;
-    height:100vh;
+    height:calc(100vh - 60px);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -60,6 +107,31 @@ h2{
     color:#d0d0d0;
 }
 
+/* 3. БЛОК ПЕРЕВАГ */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: #222;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.feature-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    color: #ff5722;
+}
+
 /* Загальні стилі для кнопок */
 .btn-main, .btn-book {
     display:inline-block;
@@ -70,7 +142,7 @@ h2{
     border:none;
     border-radius:8px;
     cursor:pointer;
-    transition:background .3s, transform .2s;
+    transition:background .3s, transform .2s, box-shadow .3s;
 }
 
 .btn-main{
@@ -79,14 +151,23 @@ h2{
 }
 
 .btn-book{
-    padding:10px 20px;
+    padding:12px 20px;
     font-size:16px;
     margin-top:15px;
+    width: 100%; /* Кнопка на всю ширину картки */
 }
 
 .btn-main:hover, .btn-book:hover{
     background:#e64a19;
     transform:translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+}
+
+/* 4. ЕФЕКТИ ДЛЯ КАРТОК МАРШРУТІВ */
+.route-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
 .route{
@@ -94,7 +175,16 @@ h2{
     padding:30px;
     border-radius:12px;
     line-height:2;
-    margin-bottom:25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    transition: transform .3s, border-color .3s;
+}
+
+.route:hover {
+    transform: translateY(-5px);
+    border-color: #ff5722;
 }
 
 .route ul, .route ol{
@@ -154,16 +244,92 @@ h2{
     margin-bottom:10px;
 }
 
+/* 5. СОЦМЕРЕЖІ У ФУТЕРІ */
 footer{
     background:#111;
     text-align:center;
-    padding:30px;
+    padding:40px 20px;
     color:#aaa;
+}
+
+.socials {
+    margin-top: 15px;
+}
+.socials a {
+    color: #ff5722;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+.socials a:hover {
+    color: #e64a19;
+}
+
+/* 2. МОДАЛЬНЕ ВІКНО БРОНЮВАННЯ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #222;
+    padding: 35px;
+    border-radius: 15px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    border: 1px solid #444;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.modal-close:hover { color: white; }
+.modal h3 { margin-bottom: 20px; font-size: 24px; text-align: center; color: #ff5722; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; color: #aaa; }
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    background: #333;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 6px;
+}
+
+@media(max-width: 768px) {
+    .nav-links { display: none; }
 }
 </style>
 
 </head>
 <body>
+
+<!-- 1. НАВІГАЦІЯ -->
+<nav>
+    <div class="nav-container">
+        <a href="#" class="logo">🚵‍♂️ EnduroTours</a>
+        <ul class="nav-links">
+            <li><a href="#why-us">Переваги</a></li>
+            <li><a href="#routes">Маршрути</a></li>
+            <li><a href="#plans">Плани</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#reviews">Відгуки</a></li>
+            <li><a href="#contacts">Контакти</a></li>
+        </ul>
+    </div>
+</nav>
 
 <header>
 <div>
@@ -173,13 +339,36 @@ footer{
 </div>
 </header>
 
-<section id="routes">
+<!-- 3. БЛОК ЧОМУ ДВОПІДВІСИ -->
+<section id="why-us">
+    <h2>Чому саме двопідвіси?</h2>
+    <div class="features">
+        <div class="feature-card">
+            <div class="icon">🚀</div>
+            <h3>Максимальний контроль</h3>
+            <p>Задній амортизатор тримає стабільне зчеплення колеса з корінням на будь-якій швидкості.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">💎</div>
+            <h3>Комфорт для тіла</h3>
+            <p>Втома у спині з'являється значно пізніше — підвіска бере жорсткі удари на себе.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🤘</div>
+            <h3>Технічний прогрес</h3>
+            <p>Трейли, які здавалися складними на хардтейлі, стануть вашим улюбленим майданчиком.</p>
+        </div>
+    </div>
+</section>
 
+<section id="routes">
 <h2>Маршрути</h2>
+<div class="route-grid">
 
 <!-- Маршрут 1 -->
 <div class="route">
-<h3>1. Львів → Брюховичі → Івано-Франкове → Яворівський національний парк</h3>
+<div>
+<h3>1. Львів → Брюховичі → Івано-Франкове → Яворівський парк</h3>
 <ul>
 <li>📍 Львів → Брюховичі — <b>10 км</b></li>
 <li>🌲 Брюховичі → Івано-Франкове — <b>20 км</b></li>
@@ -188,12 +377,15 @@ footer{
 <li>⏱ Час подорожі — 4–6 годин</li>
 <li>⭐ Складність — середня</li>
 </ul>
-<button class="btn-book" onclick="alert('Дякуємо! Наш менеджер зв’яжеться з вами для підтвердження бронювання.')">Забронювати</button>
+</div>
+<!-- 2. Виклик модалки замість alert -->
+<button class="btn-book" onclick="openModal('Яворівський парк (45 км)')">Забронювати</button>
 </div>
 
 <!-- Маршрут 2 -->
 <div class="route">
-<h3>2. Львів → Винники → Чортові Скелі (Джиб-сесія & Дропи)</h3>
+<div>
+<h3>2. Львів → Винники → Чортові Скелі (Дропи & Трейли)</h3>
 <ul>
 <li>📍 Львів → Винниківський ліс — <b>7 км</b></li>
 <li>🧗‍♂️ Чортові Скелі → Трейли — <b>15 км</b></li>
@@ -201,11 +393,13 @@ footer{
 <li>⏱ Час подорожі — 3–4 години</li>
 <li>⭐ Складність — висока (для двопідвісів)</li>
 </ul>
-<button class="btn-book" onclick="alert('Дякуємо! Наш менеджер зв’яжеться з вами для підтвердження бронювання.')">Забронювати</button>
+</div>
+<button class="btn-book" onclick="openModal('Чортові Скелі (22 км)')">Забронювати</button>
 </div>
 
 <!-- Маршрут 3 -->
 <div class="route">
+<div>
 <h3>3. Львів → Дубляни → Куликів → Королівське місто Жовква</h3>
 <ul>
 <li>📍 Львів → Дубляни — <b>8 км</b></li>
@@ -215,12 +409,14 @@ footer{
 <li>⏱ Час подорожі — 3–4 години</li>
 <li>⭐ Складність — легка</li>
 </ul>
-<button class="btn-book" onclick="alert('Дякуємо! Наш менеджер зв’яжеться з вами для підтвердження бронювання.')">Забронювати</button>
+</div>
+<button class="btn-book" onclick="openModal('Місто Жовква (35 км)')">Забронювати</button>
 </div>
 
+</div>
 </section>
 
-<section>
+<section id="plans">
 
 <h2>Плани подорожей</h2>
 
@@ -250,26 +446,19 @@ footer{
 
 </section>
 
-<section>
+<section id="gallery">
 
 <h2>Фотогалерея</h2>
 
 <div class="gallery">
-
-<!-- 1 Фото: Мішаня Огороднік -->
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKTlJWZGXRXbtzyHuSRpL8IxBFScyT1Mc79zIBmDXJYxxF9umzXOHwsms&s=10">
-
-<!-- 2 Фото: Двопідвіс -->
 <img src="https://img.redbull.com/images/c_limit,w_1500,h_1000/f_auto,q_auto/redbullcom/2020/10/30/keugav9fr9kyawsouio7/tahnee-seagrave-canyon-sender">
-
-<!-- 3 Фото: Екстремальний двопідвіс -->
 <img src="https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=800&q=80" alt="Двопідвіс гірський">
-
 </div>
 
 </section>
 
-<section>
+<section id="reviews">
 
 <h2>Відгуки райдерів</h2>
 
@@ -303,7 +492,7 @@ footer{
 
 </section>
 
-<footer>
+<footer id="contacts">
 
 <h3>Контакти</h3>
 
@@ -311,7 +500,62 @@ footer{
 <p>📧 travelbike@example.com</p>
 <p>© 2026 Подорожі на двопідвісах</p>
 
+<!-- 5. Соцмережі -->
+<div class="socials">
+    <a href="#">Instagram</a> | <a href="#">Telegram</a> | <a href="#">YouTube</a>
+</div>
+
 </footer>
+
+<!-- 2. СТРУКТУРА МОДАЛЬНОГО ВІКНА -->
+<div class="modal" id="bookModal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <h3>Бронювання туру</h3>
+        <form onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="modal-route">Обраний маршрут:</label>
+                <input type="text" id="modal-route" readonly>
+            </div>
+            <div class="form-group">
+                <label for="name">Ваше ім'я:</label>
+                <input type="text" id="name" required placeholder="Іван">
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" required placeholder="+380">
+            </div>
+            <button type="submit" class="btn-book">Підтвердити</button>
+        </form>
+    </div>
+</div>
+
+<!-- 2. ЛОГІКА МОДАЛЬНОГО ВІКНА -->
+<script>
+    const modal = document.getElementById('bookModal');
+    const routeInput = document.getElementById('modal-route');
+
+    function openModal(routeName) {
+        routeInput.value = routeName;
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+        alert('Дякуємо! Вашу заявку на маршрут "' + routeInput.value + '" прийнято. Наш менеджер зв’яжеться з вами найближчим часом.');
+        closeModal();
+    }
+</script>
 
 </body>
 </html>
