@@ -1,0 +1,568 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #1b1b1b;
+    color: white;
+    padding-top: 60px;
+}
+
+/* 1. НАВІГАЦІЯ */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: #ff5722;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color .3s;
+}
+
+.nav-links a:hover {
+    color: #ff5722;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://velopodium.com.ua/content/uploads/images/dvuhpodvesnyj-velosiped.jpg") center/cover;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+header div {
+    background: rgba(0, 0, 0, .6);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 700px;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #ddd;
+}
+
+section {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #d0d0d0;
+    font-size: 32px;
+}
+
+/* БЛОК ПЕРЕВАГ */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: #222;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.feature-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    color: #ff5722;
+}
+
+/* ТИПИ ТУРІВ (З ДЕТАЛЬНИМ ОПИСОМ) */
+.tour-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.type-card {
+    background: linear-gradient(145deg, #252525, #1e1e1e);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid #333;
+    transition: transform .3s, border-color .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.type-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff5722;
+}
+
+.type-badge {
+    background: #ff5722;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.type-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.type-card p {
+    color: #bbb;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.type-details {
+    list-style: none;
+    margin-bottom: 20px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+.type-details li {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.type-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5722;
+    margin-bottom: 15px;
+}
+
+/* КНОПКИ */
+.btn-main,
+.btn-book {
+    display: inline-block;
+    background: #ff5722;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .3s, transform .2s, box-shadow .3s;
+}
+
+.btn-main {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.btn-book {
+    padding: 12px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-main:hover,
+.btn-book:hover {
+    background: #e64a19;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+}
+
+/* КАРТКИ МАРШРУТІВ */
+.route-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.route {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 12px;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    transition: transform .3s, border-color .3s;
+}
+
+.route:hover {
+    transform: translateY(-5px);
+    border-color: #ff5722;
+}
+
+.route ul,
+.route ol {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/* БЛОК КЛУБУ РАЙДЕРІВ */
+.club-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=1200&q=80') center/cover;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid #ff5722;
+}
+
+.club-banner h3 {
+    font-size: 28px;
+    color: #ff5722;
+    margin-bottom: 15px;
+}
+
+.club-banner p {
+    font-size: 18px;
+    color: #ddd;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+/* ГАЛЕРЕЯ */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* ВІДГУКИ */
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.review-card {
+    background: #252525;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #ff5722;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-card p {
+    font-style: italic;
+    color: #dcdcdc;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #ff5722;
+}
+
+.review-stars {
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+/* FAQ */
+.faq-item {
+    background: #222;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    padding: 0 20px 18px 20px;
+    color: #aaa;
+    display: none;
+    line-height: 1.6;
+}
+
+/* ФУТЕР */
+footer {
+    background: #111;
+    text-align: center;
+    padding: 40px 20px;
+    color: #aaa;
+}
+
+.socials {
+    margin-top: 15px;
+}
+
+.socials a {
+    color: #ff5722;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* МОДАЛЬНЕ ВІКНО БРОНЮВАННЯ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.modal-content {
+    background: #222;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    border: 1px solid #444;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: white;
+}
+
+.modal h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #ff5722;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 6px;
+}
+
+/* Радіо-кнопки та вибір */
+.option-group {
+    background: #2a2a2a;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #383838;
+}
+
+.option-group p {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ff5722;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.radio-label input {
+    width: 16px;
+    height: 16px;
+    accent-color: #ff5722;
+}
+
+/* Блок Чек-листа у модалці */
+.modal-checklist {
+    display: none;
+    background: #1a1a1a;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 3px solid #ff5722;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-checklist p {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ddd;
+}
+
+.check-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #bbb;
+    cursor: pointer;
+}
+
+.check-label input {
+    width: 15px;
+    height: 15px;
+    accent-color: #ff5722;
+}
+
+.calc-total-modal {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5722;
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+}
+
+@media(max-width: 768px) {
+    header h1 {
+        font-size: 32px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(17, 17, 17, 0.98);
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+        border-bottom: 1px solid #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
